@@ -1,0 +1,19 @@
+{
+  "name": "line-dance-dj",
+  "version": "1.2.0",
+  "description": "Line Dance DJ: Express and SQLite web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

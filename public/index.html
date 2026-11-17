@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A simple workspace for line dances, events, and favorite songs."
+    />
+    <title>Line Dance DJ</title>
+    <link rel="icon" type="image/png" href="/Steps.png">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="setlist.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#dances"
+        ><span class="brand-icon" aria-hidden="true">♫</span> Line Dance DJ</a
+      >
+      <span class="demo-label">Classroom demo</span>
+      <label class="profile"
+        >Active profile
+        <select id="user-select" aria-label="Active profile"></select
+      ></label>
+    </header>
+    <div class="layout">
+      <aside>
+        <p class="nav-caption">YOUR WORKSPACE</p>
+        <nav aria-label="Main navigation">
+          <a href="#dances" data-page="dances"
+            ><span aria-hidden="true">♫</span> Dance library</a
+          >
+          <a href="#events" data-page="events"
+            ><span aria-hidden="true">▦</span> Events</a
+          >
+          <a href="#setlist" data-page="setlist"
+            ><span aria-hidden="true">☷</span> Event set list</a
+          >
+          <a href="#venues" data-page="venues"
+            ><span aria-hidden="true">⌖</span> Venues</a
+          >
+          <a href="#profiles" data-page="profiles"
+            ><span aria-hidden="true">♧</span> Profiles</a
+          >
+          <a href="#favorites" data-page="favorites"
+            ><span aria-hidden="true">♡</span> Favorites</a
+          >
+          <a href="#reports" data-page="reports"
+            ><span aria-hidden="true">▤</span> Reports</a
+          >
+        </nav>
+        <div class="sidebar-note">
+          <strong>Good nights start<br />with a good playlist.</strong>
+          <p>Find your next dance.<br />Save the ones you love.</p>
+        </div>
+        <span class="sidebar-footer">LINE UP. STEP OUT.</span>
+      </aside>
+      <main id="main" tabindex="-1">
+        <p class="empty">Loading your workspace…</p>
+      </main>
+    </div>
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+    <dialog id="modal" aria-labelledby="modal-title">
+      <div id="modal-content"></div>
+    </dialog>
+    <footer>
+      Line Dance DJ · Database &amp; Scripting project
+      <span>Sample people, venues, and events are fictional.</span>
+    </footer>
+  </body>
+</html>
