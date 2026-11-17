@@ -22,7 +22,7 @@ Line Dance DJ is a JavaScript web application for planning and running line danc
 
 The frontend is plain HTML/CSS/JavaScript, and the backend is Express 5. SQLite is the persistent data store. The backend uses direct, parameterized SQL and no ORM.
 
-I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-end, which Dr. Reid stated would be fine.
+I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-end, which Dr. Reid stated would be fine. I also used ChatGPT to help format this README.md file to make it look pretty.
 
 ## DBMS
 
@@ -50,50 +50,7 @@ I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-
 
 ## Database Setup
 
-The application creates its own database automatically. Option A is enough to run the app. Option B shows how to recreate the database and run the required SQL by hand.
-
-### Option A: automatic (used by the application)
-
-On first start, the app creates `data/line_dance_dj.db` and runs `database/schema.sql` and then `database/insert_data.sql`. Later starts keep the saved data.
-
-To reset to the original sample data, stop the app, delete `data/line_dance_dj.db`, and start the app again.
-
-### Option B: manual, with the SQLite command-line program
-
-**Required software:** the `sqlite3` CLI, version 3.35 or later (needed for `RETURNING`). Download it from https://sqlite.org/download.html, or on Windows run `winget install SQLite.SQLite`.
-
-Run the files in this order from the `database/` folder:
-
-1. `schema.sql` drops and recreates all tables, indexes, and the view.
-2. `insert_data.sql` loads the sample data.
-3. `queries.sql` runs the nine required queries.
-4. `transaction.sql` runs the transaction example. It ends with `ROLLBACK`, so the sample data is unchanged and the file can be run again.
-
-**Using the script** (macOS, Linux, or Git Bash on Windows):
-
-```bash
-bash database/run_queries.sh
-```
-
-The script rebuilds `database/line_dance_dj.db` and prints each query with its results.
-
-**Running the files one at a time:**
-
-```bash
-cd database
-sqlite3 line_dance_dj.db < schema.sql
-sqlite3 line_dance_dj.db < insert_data.sql
-sqlite3 -header -column line_dance_dj.db < queries.sql
-sqlite3 -header -column line_dance_dj.db < transaction.sql
-```
-
-**SQLite-specific notes**
-
-- Foreign-key enforcement is off by default in SQLite and must be turned on for each connection with `PRAGMA foreign_keys = ON;`. The SQL files and the application both do this.
-- Dates and times are stored as `TEXT` in `YYYY-MM-DD HH:MM:SS` format.
-- `schema.sql` drops existing project tables first. Run it only on the project database.
-
-To have the app use a database you built by hand, point `DB_PATH` at that file (see Configuration below).
+The application creates its own database automatically with no additional step required from the user. To run the transaction.sql and queries.sql files, you can run the run_queries.sh script from the /database folder. To do this you will need to have sqlite3 downloaded on your computer.
 
 ## Application Setup
 
@@ -119,14 +76,14 @@ Open http://localhost:3000 in a browser. Stop the server with Ctrl+C. The server
 
 ### Configuration
 
-No configuration is required. The defaults work as-is. To change them, copy `.env.example` to `.env` and edit the values. `npm start` loads `.env` if it exists.
+No configuration is required. The defaults work as-is.
 
 | Setting | Default | Purpose |
 | --- | --- | --- |
 | `PORT` | `3000` | Port for the web server |
 | `DB_PATH` | `data/line_dance_dj.db` | Path to the SQLite database file the app opens (or creates) |
 
-The database connection is the file path in `DB_PATH`. There are no passwords, keys, or connection strings. `.env` is listed in `.gitignore`.
+The database connection is the file path in `DB_PATH`. There are no passwords, keys, or connection strings.
 
 ## Major Application Operations
 
