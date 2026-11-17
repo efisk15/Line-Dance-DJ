@@ -22,7 +22,7 @@ Line Dance DJ is a JavaScript web application for planning and running line danc
 
 The frontend is plain HTML/CSS/JavaScript, and the backend is Express 5. SQLite is the persistent data store. The backend uses direct, parameterized SQL and no ORM.
 
-I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-end, which Dr. Reid stated would be fine.
+I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-end, which Dr. Reid stated would be fine. I also used ChatGPT to help format this README.md file to make it look pretty.
 
 ## DBMS
 
