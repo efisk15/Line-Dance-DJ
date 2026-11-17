@@ -50,50 +50,7 @@ I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-
 
 ## Database Setup
 
-The application creates its own database automatically. Option A is enough to run the app. Option B shows how to recreate the database and run the required SQL by hand.
-
-### Option A: automatic (used by the application)
-
-On first start, the app creates `data/line_dance_dj.db` and runs `database/schema.sql` and then `database/insert_data.sql`. Later starts keep the saved data.
-
-To reset to the original sample data, stop the app, delete `data/line_dance_dj.db`, and start the app again.
-
-### Option B: manual, with the SQLite command-line program
-
-**Required software:** the `sqlite3` CLI, version 3.35 or later (needed for `RETURNING`). Download it from https://sqlite.org/download.html, or on Windows run `winget install SQLite.SQLite`.
-
-Run the files in this order from the `database/` folder:
-
-1. `schema.sql` drops and recreates all tables, indexes, and the view.
-2. `insert_data.sql` loads the sample data.
-3. `queries.sql` runs the nine required queries.
-4. `transaction.sql` runs the transaction example. It ends with `ROLLBACK`, so the sample data is unchanged and the file can be run again.
-
-**Using the script** (macOS, Linux, or Git Bash on Windows):
-
-```bash
-bash database/run_queries.sh
-```
-
-The script rebuilds `database/line_dance_dj.db` and prints each query with its results.
-
-**Running the files one at a time:**
-
-```bash
-cd database
-sqlite3 line_dance_dj.db < schema.sql
-sqlite3 line_dance_dj.db < insert_data.sql
-sqlite3 -header -column line_dance_dj.db < queries.sql
-sqlite3 -header -column line_dance_dj.db < transaction.sql
-```
-
-**SQLite-specific notes**
-
-- Foreign-key enforcement is off by default in SQLite and must be turned on for each connection with `PRAGMA foreign_keys = ON;`. The SQL files and the application both do this.
-- Dates and times are stored as `TEXT` in `YYYY-MM-DD HH:MM:SS` format.
-- `schema.sql` drops existing project tables first. Run it only on the project database.
-
-To have the app use a database you built by hand, point `DB_PATH` at that file (see Configuration below).
+The application creates its own database automatically with no additional step required from the user. To run the transaction.sql and queries.sql files, you can run the run_queries.sh script from the /database folder
 
 ## Application Setup
 
