@@ -56,7 +56,7 @@ The application creates its own database automatically with no additional step r
 
 **Language:** JavaScript (Node.js).
 
-**Required software:** Node.js 24 or later, including npm (https://nodejs.org). The app uses the built-in `node:sqlite` module, so no separate SQLite install is needed to run it.
+**Required software:** Node.js 24 or later, including npm. The app uses the built-in `node:sqlite` module, so no separate SQLite install is needed to run it.
 
 **Required packages:** `express` 5, listed in `package.json`. The exact versions are pinned in `package-lock.json`.
 
