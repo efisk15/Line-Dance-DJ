@@ -50,7 +50,7 @@ I acknowledge that I did use ChatGPT (OpenAI, 2026) to help build out the front-
 
 ## Database Setup
 
-The application creates its own database automatically with no additional step required from the user. To run the transaction.sql and queries.sql files, you can run the run_queries.sh script from the /database folder
+The application creates its own database automatically with no additional step required from the user. To run the transaction.sql and queries.sql files, you can run the run_queries.sh script from the /database folder. To do this you will need to have sqlite3 downloaded on your computer.
 
 ## Application Setup
 
@@ -76,14 +76,14 @@ Open http://localhost:3000 in a browser. Stop the server with Ctrl+C. The server
 
 ### Configuration
 
-No configuration is required. The defaults work as-is. To change them, copy `.env.example` to `.env` and edit the values. `npm start` loads `.env` if it exists.
+No configuration is required. The defaults work as-is.
 
 | Setting | Default | Purpose |
 | --- | --- | --- |
 | `PORT` | `3000` | Port for the web server |
 | `DB_PATH` | `data/line_dance_dj.db` | Path to the SQLite database file the app opens (or creates) |
 
-The database connection is the file path in `DB_PATH`. There are no passwords, keys, or connection strings. `.env` is listed in `.gitignore`.
+The database connection is the file path in `DB_PATH`. There are no passwords, keys, or connection strings.
 
 ## Major Application Operations
 
